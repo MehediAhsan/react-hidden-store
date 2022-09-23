@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
+import Modal from '../Modal/Modal';
 
 const Gun = (props) => {
-    console.log(props.gun)
+    const [details, setDetails] = useState({});
     const {gun,increaseCount} = props;
-    const {action,bullet,capacity,img,name,price} = gun;
+    const {action,bullet,img,name} = gun;
+
     return (
         <div>
             <div className="card w-full bg-base-100 shadow-xl">
@@ -13,17 +15,19 @@ const Gun = (props) => {
                     {name}
                     <div className="badge badge-secondary">NEW</div>
                     </h2>
-                    <p>If a dog chews shoes whose shoes does he choose?</p>
-                    <div className="card-actions">
+                    <div className="card-actions mt-2">
                         <div className="badge badge-outline">{action}</div> 
                         <div className="badge badge-outline">{bullet}</div>
                         <div className='mt-4'>
                         <button onClick={() => increaseCount()} className="btn btn-sm btn-primary mr-3">Add to Cart</button>
-                        <button className="btn btn-sm btn-danger">Details</button>
+                        <label onClick={() => setDetails(gun)} htmlFor="my-modal-3" className="btn btn-sm btn-danger modal-button">Details</label>
                         </div>
                     </div>
                 </div>
             </div>
+            {
+                details && <Modal details={details} setDetails={setDetails} />
+            }
         </div>
     );
 };

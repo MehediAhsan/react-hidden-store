@@ -18,7 +18,7 @@ const Guns = ({increaseCount}) => {
 
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mx-10'>
                 {
-                    guns.map(gun => <Gun gun={gun} increaseCount={increaseCount} />)
+                    guns.map(gun => <Gun gun={gun} key={gun.id} increaseCount={increaseCount} />)
                 }
             </div>
         </div>
