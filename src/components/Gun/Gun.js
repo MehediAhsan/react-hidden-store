@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Modal from '../Modal/Modal';
 
 const Gun = (props) => {
-    const [details, setDetails] = useState({});
+    const [details, setDetails] = useState(null);
     const {gun,increaseCount} = props;
     const {action,bullet,img,name} = gun;
 

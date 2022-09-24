@@ -4,8 +4,6 @@ import Gun from '../Gun/Gun';
 const Guns = ({increaseCount}) => {
     const [guns, setGuns] = useState([])
 
-    // console.log(guns);
-
     useEffect( () => {
         fetch('https://raw.githubusercontent.com/mir-hussain/guns/main/data.json')
         .then(res => res.json())
